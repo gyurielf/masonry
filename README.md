@@ -2,7 +2,7 @@
 
 # masonry
 
-# Main credits for [Momchil Georgiev](https://github.com/fristys).
+## Main credits for [Momchil Georgiev](https://github.com/fristys).
 
 A simple masonry library written in TypeScript.
 
