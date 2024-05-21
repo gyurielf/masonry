@@ -2,6 +2,8 @@
 
 # masonry
 
+# Main credits for [Momchil Georgiev](https://github.com/fristys).
+
 A simple masonry library written in TypeScript.
 
 The masonry library we need, but don't deserve. Uses pure JavaScript and should be compatible with most browsers.
