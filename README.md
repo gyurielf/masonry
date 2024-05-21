@@ -37,13 +37,22 @@ const masonry = new Masonry(document.getElementById('masonry'), options);
 
 `gutterUnit: string` _(default `px`)_ the unit of measurement to use when applying the gutter to the masonry grid (could be any valid unit of measurement `px`, `%`, `rem`, `em`, etc.)
 
-`columnBreakpoints: any` _(default `undefined`)_ Most Masonry scenarios require some form of responsiveness. Setting this property allows you to set the number of columns to be used for different viewport width(s) in the format of `{ [width: number]: [columns: number] }`. Example:
+`columnBreakpoints: Record<number, number>` _(default `undefined`)_ Most Masonry scenarios require some form of responsiveness. Setting this property allows you to set the number of columns to be used for different viewport width(s) in the format of `{ [width: number]: [columns: number] }`. Example:
 
 ```typescript
 // viewports with the width of <= 920 will get 2 columns
 // viewports with the width of <= 740 will get 1 column
 // Any other viewport width will get whatever value you've set for `columns`
 const columnBreakpoints = { 960: 2, 740: 1 };
+```
+
+`gutterBreakpoints: Record<number, number>` _(default `undefined`)_ Most Masonry scenarios require some form of responsiveness. Setting this property allows you to set the number of columns to be used for different viewport width(s) in the format of `{ [width: number]: [gutter: number] }`. Example:
+
+```typescript
+// viewports with the width of <= 920 will get 10 (gutterUnit) gutter
+// viewports with the width of <= 740 will get 30 (gutterUnit) gutter
+// Any other viewport width will get whatever value you've set for `gutter`
+const gutterBreakpoints = { 960: 10, 740: 30 };
 ```
 
 `initOnImageLoad: boolean` _(default: `false`)_ Will initialize the Masonry exactly after all the images inside the container are loaded. This is done in an event-based way, so no need for any Promise polyfills or 3rd party libraries.
