@@ -1,7 +1,7 @@
 import { debounce } from './utils/debounce.js';
 import { imagesLoaded } from './utils/images-loaded.js';
 import { Errors } from './models/errors.model.js';
-import type { MasonryOptions } from './models/options.interface.js';
+import type { MasonryOptions } from './types';
 
 export class Masonry {
 	private columns = 4;
@@ -30,7 +30,10 @@ export class Masonry {
 
 	private sizeObservers!: { observer: ResizeObserver; target: Element }[];
 
-	constructor(private masonryContainer: HTMLElement, options?: MasonryOptions) {
+	constructor(
+		private masonryContainer: HTMLElement,
+		options?: MasonryOptions
+	) {
 		if (!this.masonryContainer) throw new Error(Errors.containerDoesNotExist);
 
 		this.setOptions(options);
