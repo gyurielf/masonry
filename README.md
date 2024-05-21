@@ -1,6 +1,7 @@
 ![masonry](https://i.imgur.com/AVeTw1M.png)
 
 # masonry
+
 A simple masonry library written in TypeScript.
 
 The masonry library we need, but don't deserve. Uses pure JavaScript and should be compatible with most browsers.
@@ -8,34 +9,35 @@ The masonry library we need, but don't deserve. Uses pure JavaScript and should 
 ## Installation
 
 npm
+
 ```bash
-npm i @fristys/masonry
+npm i @gyurielf/masonry
 ```
 
 yarn
+
 ```bash
-yarn add @fristys/masonry
+yarn add @gyurielf/masonry
 ```
 
 ## Usage
 
 ```typescript
-import { Masonry } from '@fristys/masonry';
+import { Masonry } from '@gyurielf/masonry';
 
 const options = { gutter: 1.5, gutterUnit: 'rem', columnBreakpoints: { 960: 2, 740: 1 } };
 const masonry = new Masonry(document.getElementById('masonry'), options);
-
 ```
 
 ## Options
 
-`columns: number` *(default: `4`)* the number of columns to render. Column widths are calculated via percentage - `gutter` (`calc((100 / columns)% - gutter)`).
+`columns: number` _(default: `4`)_ the number of columns to render. Column widths are calculated via percentage - `gutter` (`calc((100 / columns)% - gutter)`).
 
-`gutter: number` *(default: `10`)* the size of the gutter between columns and rows.
+`gutter: number` _(default: `10`)_ the size of the gutter between columns and rows.
 
-`gutterUnit: string` *(default `px`)* the unit of measurement to use when applying the gutter to the masonry grid (could be any valid unit of measurement `px`, `%`, `rem`, `em`, etc.)
+`gutterUnit: string` _(default `px`)_ the unit of measurement to use when applying the gutter to the masonry grid (could be any valid unit of measurement `px`, `%`, `rem`, `em`, etc.)
 
-`columnBreakpoints: any` *(default `undefined`)* Most Masonry scenarios require some form of responsiveness. Setting this property allows you to set the number of columns to be used for different viewport width(s) in the format of `{ [width: number]: [columns: number] }`. Example:
+`columnBreakpoints: any` _(default `undefined`)_ Most Masonry scenarios require some form of responsiveness. Setting this property allows you to set the number of columns to be used for different viewport width(s) in the format of `{ [width: number]: [columns: number] }`. Example:
 
 ```typescript
 // viewports with the width of <= 920 will get 2 columns
@@ -44,29 +46,29 @@ const masonry = new Masonry(document.getElementById('masonry'), options);
 const columnBreakpoints = { 960: 2, 740: 1 };
 ```
 
-`initOnImageLoad: boolean` *(default: `false`)* Will initialize the Masonry exactly after all the images inside the container are loaded. This is done in an event-based way, so no need for any Promise polyfills or 3rd party libraries.
+`initOnImageLoad: boolean` _(default: `false`)_ Will initialize the Masonry exactly after all the images inside the container are loaded. This is done in an event-based way, so no need for any Promise polyfills or 3rd party libraries.
 
-`loadingClass: string` *(default: `masonry-loading`)* Loading class to add to the Masonry container whilst waiting for images inside it to load. This is done with the idea that you might want to hide the container before its images are loaded and Masonry initialized. Example:
+`loadingClass: string` _(default: `masonry-loading`)_ Loading class to add to the Masonry container whilst waiting for images inside it to load. This is done with the idea that you might want to hide the container before its images are loaded and Masonry initialized. Example:
 
 ```css
-    #masonry {
-      transition: opacity .25s;
-    }
+#masonry {
+  transition: opacity 0.25s;
+}
 
-    #masonry.masonry-loading {
-      opacity: 0;
-    }
+#masonry.masonry-loading {
+  opacity: 0;
+}
 ```
 
-`loadedClass: string` *(default: `masonry-loaded`)* Class to add to the Masonry container after it's done loading.
+`loadedClass: string` _(default: `masonry-loaded`)_ Class to add to the Masonry container after it's done loading.
 
-`onInit: () => void` An optional callback for when the Masonry is finished calculating and setting itself up. *NB: this is called every time `init()` is called to recalculate things*
+`onInit: () => void` An optional callback for when the Masonry is finished calculating and setting itself up. _NB: this is called every time `init()` is called to recalculate things_
 
-`bindOnScroll: boolean` *(default: `true`)* Controls whether the event listener for reintialization on `window.resize` is bound or not. If you don't want responsive columns, you may also not want to have the Masonry listening to `window.resize` needlessly.
+`bindOnScroll: boolean` _(default: `true`)_ Controls whether the event listener for reintialization on `window.resize` is bound or not. If you don't want responsive columns, you may also not want to have the Masonry listening to `window.resize` needlessly.
 
-`useContainerWidth: boolean` *(default: `false`)* Should the Masonry use the container's width instead of the viewport's width when calculating responsive column count?
+`useContainerWidth: boolean` _(default: `false`)_ Should the Masonry use the container's width instead of the viewport's width when calculating responsive column count?
 
-`trackItemSizeChanges: boolean` *(default: `false`)* Should the Masonry track the changes in size for all the items inside of it and re-initialize on size change? This uses [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver), if you want to use this feature and support legacy browsers, it's a good idea to add a polyfill for it to your project.
+`trackItemSizeChanges: boolean` _(default: `false`)_ Should the Masonry track the changes in size for all the items inside of it and re-initialize on size change? This uses [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver), if you want to use this feature and support legacy browsers, it's a good idea to add a polyfill for it to your project.
 
 ## API
 

@@ -1,51 +1,95 @@
 {
-  "name": "@fristys/masonry",
-  "version": "1.1.7",
+  "name": "@gyurielf/masonry",
+  "version": "1.0.0",
+  "type": "module",
   "description": "A simple masonry library written in TypeScript",
-  "main": "lib/masonry.js",
   "scripts": {
-    "build": "npm run clean && rollup -c",
+    "build": "npm run clean && rollup -c --configPlugin typescript",
+    "build:watch": "npm run clean && rollup -c -w --configPlugin typescript",
     "ship": "npm run build && npm publish",
-    "clean": "rimraf ./lib"
+    "clean": "rimraf ./dist",
+    "lint": "npm run eslint && npm run ts",
+    "lint:fix": "pnpm run eslint:fix && pnpm run prettier:fix",
+    "eslint": "eslint --ext .js,.ts .",
+    "eslint:fix": "eslint --fix",
+    "publint:check": "publint . --strict",
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "ts": "tsc --noEmit",
+    "publish:package": "npm publish --access public"
   },
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fristys/masonry.git"
+    "url": "git+https://github.com/gyurielf/masonry.git"
   },
+  "homepage": "https://github.com/gyurielf/masonry#readme",
   "keywords": [
     "masonry",
+    "waterfall",
     "typescript",
-    "library"
+    "library",
+    "javascript"
   ],
-  "author": "Momchil Georgiev <fristys@gmail.com> (https://fristys.me)",
+  "author": "Gyorgy Kallai",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fristys/masonry/issues"
+    "url": "https://github.com/gyurielf/masonry/issues"
   },
   "publishConfig": {
     "access": "public",
     "tag": "latest",
     "cache": "~/.npm"
   },
-  "homepage": "https://github.com/fristys/masonry#readme",
   "devDependencies": {
-    "@types/node": "^15.6.1",
-    "@typescript-eslint/eslint-plugin": "^4.25.0",
-    "eslint": "^7.27.0",
-    "eslint-config-airbnb-typescript": "^12.3.1",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.50.5",
-    "rollup-plugin-eslint": "^7.0.0",
-    "rollup-plugin-typescript2": "^0.30.0",
-    "rollup-plugin-uglify": "^6.0.4",
-    "tslib": "^2.2.0",
-    "typescript": "^4.3.2"
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-eslint": "^9.0.5",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/node": "^20.12.12",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
+    "eslint": "~8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "publint": "^0.2.7",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.7",
+    "rollup": "^4.17.2",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5"
+  },
+  "typesVersions": {
+    "*": {
+      "types": [
+        "./dist/types/types.d.ts"
+      ]
+    }
+  },
+  "main": "./dist/cjs/main.cjs",
+  "module": "./dist/esm/main.js",
+  "types": "./dist/types/main.d.ts",
+  "typings": "./dist/types/main.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/main.d.ts",
+        "default": "./dist/esm/main.js"
+      },
+      "require": {
+        "types": "./dist/types/main.d.cts",
+        "default": "./dist/cjs/main.cjs"
+      },
+      "default": {
+        "types": "./dist/types/main.d.ts",
+        "default": "./dist/esm/main.js"
+      }
+    },
+    "./types": "./dist/types/types.d.ts"
   }
 }
