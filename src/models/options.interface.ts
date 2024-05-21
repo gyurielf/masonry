@@ -1,41 +1,48 @@
 export interface MasonryOptions {
-  /** The number of columns for the masonry */
-  columns?: number;
+	/** The number of columns for the masonry */
+	columns?: number;
 
-  /**
-   * The number of columns for the masonry depending on width
-   *
-   * `{ [width]: [noOfColumns] }`
-   * */
-  columnBreakpoints?: any;
+	/**
+	 * The number of columns for the masonry depending on width
+	 *
+	 * `{ [width]: [noOfColumns] }`
+	 * */
+	columnBreakpoints?: Record<number, number>;
 
-  /** Column gutter size  */
-  gutter?: number;
+	/**
+	 * The column gutter for the masonry depending on width
+	 *
+	 * `{ [width]: [noOfGutter] }`
+	 * */
+	gutterBreakpoints?: Record<number, number>;
 
-  /** Column gutter unit (`px`, `em`, `rem`, `%`, etc.) */
-  gutterUnit?: string;
+	/** Column gutter size  */
+	gutter?: number;
 
-  /**
-   * Should this Masonry instance wait for all the images in the container to load first before
-   * initializing?
-   * */
-  initOnImageLoad?: boolean;
+	/** Column gutter unit (`px`, `em`, `rem`, `%`, etc.) */
+	gutterUnit?: string;
 
-  /** Class to add to the Masonry container during image loading */
-  loadingClass?: string;
+	/**
+	 * Should this Masonry instance wait for all the images in the container to load first before
+	 * initializing?
+	 * */
+	initOnImageLoad?: boolean;
 
-  /** Class to add to the Masonry after it's finished loading  */
-  loadedClass?: string;
+	/** Class to add to the Masonry container during image loading */
+	loadingClass?: string;
 
-  /** Callback for when the Masonry is finished calculating and setting itself up */
-  onInit?: () => void;
+	/** Class to add to the Masonry after it's finished loading  */
+	loadedClass?: string;
 
-  /** Should the Masonry bind to window.resize and recalculate itself automatically? */
-  bindOnScroll?: boolean;
+	/** Callback for when the Masonry is finished calculating and setting itself up */
+	onInit?: () => void;
 
-  /** Should the Masonry use the container's width when calculating as opposed to viewport width */
-  useContainerWidth?: boolean;
+	/** Should the Masonry bind to window.resize and recalculate itself automatically? */
+	bindOnScroll?: boolean;
 
-  /** Should the Masonry track the changes in size for all items inside of it and re-initialize on change */
-  trackItemSizeChanges?: boolean;
+	/** Should the Masonry use the container's width when calculating as opposed to viewport width */
+	useContainerWidth?: boolean;
+
+	/** Should the Masonry track the changes in size for all items inside of it and re-initialize on change */
+	trackItemSizeChanges?: boolean;
 }
