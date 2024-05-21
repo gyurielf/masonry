@@ -1,8 +1,6 @@
 ![masonry](https://i.imgur.com/AVeTw1M.png)
 
-# masonry
-
-## Main credits for [Momchil Georgiev](https://github.com/fristys).
+# masonry - credits for [Momchil Georgiev](https://github.com/fristys).
 
 A simple masonry library written in TypeScript.
 
