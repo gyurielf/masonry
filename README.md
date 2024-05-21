@@ -6,6 +6,8 @@ A simple masonry library written in TypeScript.
 
 The masonry library we need, but don't deserve. Uses pure JavaScript and should be compatible with most browsers.
 
+### This fork has been fixed the main gutter issues and gives more features.
+
 ## Installation
 
 npm
